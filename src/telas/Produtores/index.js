@@ -9,30 +9,12 @@ import useTextos from '../../hooks/useTextos';
 
 export default function Produtores({ melhoresProdutores }) {
   const lista = useProdutores(melhoresProdutores);
-  const { mensagemCompra, tituloProdutores } = useTextos();
+  const { tituloProdutores } = useTextos();
   const navigation = useNavigation();
-  const route = useRoute();
-  const nomeCompra = route.params?.compra.nome;
-  const timestampCompra = route.params?.compra.timestamp;
-  const mensagemCompleta = mensagemCompra?.replace('$NOME', nomeCompra);
-  const [ exibeMensagem, setExibeMensagem ] = useState(false);
-
-  useEffect(() => {
-    setExibeMensagem(!!nomeCompra);
-    let timeout;
-    if (timestampCompra) {
-      timeout = setTimeout(() => {
-        setExibeMensagem(false);
-      }, 3000);
-    }
-
-    return () => clearTimeout(timeout);
-  }, [timestampCompra]);
-
+  
   const TopoLista = () => {
     return <>
       <Topo melhoresProdutores={melhoresProdutores} />
-      { exibeMensagem && <Text style={estilos.compra}>{ mensagemCompleta }</Text> }
       <Text style={estilos.titulo}>{tituloProdutores}</Text>
     </>
   }

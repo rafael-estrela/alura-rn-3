@@ -8,7 +8,11 @@ const textos = {
     topoCesta: "Detalhe da cesta",
     botaoComprar: "Comprar",
     tituloItens: "Itens da cesta",
-    mensagemCompra: "Agradecemos pela compra da cesta $NOME, seu pedido chegará em breve!",
+    tituloPedido: "Pedido feito com sucesso!",
+    conteudoTituloPedido: "Parabéns!",
+    conteudoSubtituloPedido: "Agradecemos pela compra da cesta $CESTA, seu pedido chegará em breve!",
+    botaoHomePedido: "Voltar a Home",
+    botaoProdutorPedido: "Voltar ao Produtor"
 };
 
 export default textos;

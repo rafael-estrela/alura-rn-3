@@ -8,10 +8,6 @@ import { useNavigation } from '@react-navigation/native';
 export default function Detalhes({ nome, produtor, descricao, preco }) {
   const navigation = useNavigation();
   const { botaoComprar } = useTextos();
-  const onPress = (cesta) => {
-    // TODO mostrar algo?
-    navigation.popToTop()
-  };
 
   return <>
     <Texto style={estilos.nome}>{ nome }</Texto>
@@ -24,12 +20,7 @@ export default function Detalhes({ nome, produtor, descricao, preco }) {
 
     <TouchableOpacity 
       style={estilos.botao} 
-      onPress={() => navigation.navigate('Produtores', {
-        compra: {
-          nome,
-          timestamp: new Date().valueOf()
-        }
-      }) }>
+      onPress={() => navigation.navigate('Pedido', { cesta: nome }) }>
       <Texto style={estilos.textoBotao}>{ botaoComprar }</Texto>
     </TouchableOpacity>
   </>
